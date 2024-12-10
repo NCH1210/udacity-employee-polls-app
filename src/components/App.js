@@ -22,7 +22,7 @@ function App() {
                     }
                 />
                 <Route
-                    path="/add"
+                    path="/new"
                     element={
                         <PrivateRoute>
                             <NewPoll />
@@ -46,6 +46,7 @@ function App() {
                     }
                 />
             </Routes>
+            ;
         </div>
     );
 }
