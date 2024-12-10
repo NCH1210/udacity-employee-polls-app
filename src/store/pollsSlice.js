@@ -8,15 +8,17 @@ const pollsSlice = createSlice({
         error: null,
     },
     reducers: {
-        setPolls: (state, action) => {
+        setPolls(state, action) {
             state.items = action.payload;
         },
-        addPoll: (state, action) => {
+        addPoll(state, action) {
             state.items[action.payload.id] = action.payload;
         },
-        answerPoll: (state, action) => {
+        answerPoll(state, action) {
             const { qid, answer, authedUser } = action.payload;
-            state.items[qid][answer].votes.push(authedUser);
+            if (state.items[qid] && state.items[qid][answer]) {
+                state.items[qid][answer].votes.push(authedUser);
+            }
         },
     },
 });
